@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication1</name>
+    </assembly>
+    <members>
+        <member name="T:WebApplication1.Controllers.GenerateController">
+            <summary>
+            Контроллер генераций.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.Post">
+            <summary>
+            POST-обработчик. Рандомное заполнение списков пользователей и писем.
+            </summary>
+            <returns> JSON всех пользователей. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.GetMessages">
+            <summary>
+            Достает сообщения из файла в список.
+            </summary>
+            <returns> Лист сообщений. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.SetMessages(System.Collections.Generic.List{TextMessage})">
+            <summary>
+            Заменяет информацию о сообщениях в файле на новую.
+            </summary>
+            <param name="messages"> Лист сообщений. </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.GetUsers">
+            <summary>
+            Достает пользователей из файла в список.
+            </summary>
+            <returns> Лист пользователей. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.SetUsers(System.Collections.Generic.List{User})">
+            <summary>
+            Заменяет информацию о пользователях в файле на новую.
+            </summary>
+            <param name="users"> Лист пользователей. </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.GenerateController.RandomUser">
+            <summary>
+            Генерирует рандомного пользователя.
+            </summary>
+            <returns> Пользователь. </returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.MessagesController">
+            <summary>
+            Контроллер сообщений.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.MessagesController.Get">
+            <summary>
+            GET-обработчик (все сообщения).
+            </summary>
+            <returns> JSON всех сообщений. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.MessagesController.Get(System.String,System.String)">
+            <summary>
+            GET-обработчик (все сообщения, получатель и отправитель).
+            </summary>
+            <param name="sender"> E-mail отправителя. </param>
+            <param name="receiver"> E-mail получателя. </param>
+            <returns> JSON сообщений с заданными отправителем и получателем. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.MessagesController.Get(System.String)">
+            <summary>
+            GET-обработчик (все сообщения, отправитель).
+            </summary>
+            <param name="email"> E-mail отправителя. </param>
+            <returns> JSON сообщений, отправленных заданным пользователем. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.MessagesController.GetAnother(System.String)">
+            <summary>
+            GET-обработчик (все сообщения, получатель).
+            </summary>
+            <param name="email"> E-mail получателя. </param>
+            <returns>JSON сообщений, полученных заданным пользователем. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.MessagesController.PostBody(TextMessage)">
+            <summary>
+            POST-обработчик, добавляет сообщение.
+            </summary>
+            <param name="message"> Сообщение. </param>
+            <returns> Список сообщений. </returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.UsersController">
+            <summary>
+            Контроллер пользователей.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.Get(System.Int32,System.Int32)">
+            <summary>
+            GET-обработчик (все пользователи).
+            </summary>
+            <returns> JSON пользователей. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.Get(System.String)">
+            <summary>
+            GET-обработчик (пользователь по e-mail).
+            </summary>
+            <param name="email"> Email пользователя. </param>
+            <returns> Пользователь с заданным e-mailом. </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.PostBody(User)">
+            <summary>
+            POST-обработчик, добавляет пользователя.
+            </summary>
+            <param name="user"> Пользователь. </param>
+            <returns> Список пользователей. </returns>
+        </member>
+        <member name="T:WebApplication1.Program">
+            <summary>
+            Класс программы.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Program.Main(System.String[])">
+            <summary>
+            Точка входа.
+            </summary>
+            <param name="args"> Аргументы. </param>
+        </member>
+        <member name="M:WebApplication1.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Билдит все, что нам надо.
+            </summary>
+            <param name="args"> Аргументы. </param>
+            <returns> Создатель хоста. </returns>
+        </member>
+        <member name="T:WebApplication1.Startup">
+            <summary>
+            Запуск. 
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="configuration"> Конфигурация </param>
+        </member>
+        <member name="P:WebApplication1.Startup.Configuration">
+            <summary>
+            Свойство конфигурации.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Кофигурация сервисов.
+            </summary>
+            <param name="services"> Сервисы. </param>
+        </member>
+        <member name="M:WebApplication1.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Конфигурирует...
+            </summary>
+            <param name="app"> Билдер приложения. </param>
+            <param name="env"> Среда. </param>
+        </member>
+        <member name="T:TextMessage">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="P:TextMessage.Subject">
+            <summary>
+            Тема сообщения.
+            </summary>
+        </member>
+        <member name="P:TextMessage.Message">
+            <summary>
+            Текст сообщения.
+            </summary>
+        </member>
+        <member name="P:TextMessage.SenderId">
+            <summary>
+            E-mail отправителя.
+            </summary>
+        </member>
+        <member name="P:TextMessage.ReceiverId">
+            <summary>
+            E-mail адресата.
+            </summary>
+        </member>
+        <member name="T:User">
+            <summary>
+            Пользователь.
+            </summary>
+        </member>
+        <member name="P:User.UserName">
+            <summary>
+            Имя пользователя.
+            </summary>
+        </member>
+        <member name="P:User.Email">
+            <summary>
+            Почта пользователя.
+            </summary>
+        </member>
+        <member name="M:User.CompareTo(User)">
+            <summary>
+            Сравнение пользователей.
+            </summary>
+            <param name="other"> Другой пользователь. </param>
+            <returns> Больший пользователь. </returns>
+        </member>
+    </members>
+</doc>
